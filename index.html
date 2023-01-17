@@ -4,13 +4,75 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <link href="style.css" rel="stylesheet" type="text/css" />
+  <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+  <script type="text/javascript">
+    function recurseAndAdd(el, descendants) {
+      descendants.push(el);
+      var children = el.childNodes;
+      for(let i=0; i < children.length; i++) {
+         if (children[i].nodeType == 1) {
+             recurseAndAdd(children[i]);
+         }
+      }
+    }
+    function getchildrenlol(ele) {
+      var alldescendants = [];
+
+      var t = ele.childNodes;
+          for(let i = 0; i < t.length; i++)
+              if (t[i].nodeType == 1)
+                  recurseAndAdd(t[i], alldescendants);
+      
+      return alldescendants;
+    }
+    window.onload = function() {
+        $("#backgrounds")[0].style.zoom = ($("#bgselectlol").outerHeight()/$("#backgrounds").outerHeight())
+        var eSelect = document.getElementById('backgrounds');
+        eSelect.onchange = function() {
+            if(eSelect.selectedIndex === 0) {
+                $('body').css('background-image', "url('/assets/images/background 1.png')");
+                $(".bg3playerhahalol").each(function (index, element) {
+                    element.classList.remove('bg3playerhahalol');
+                    element.classList.add('playerhahalol');
+                    daelements = getchildrenlol(element);
+                    for (var i = 0; i < daelements.length; i++) {
+                        var element = daelements[i];
+                        element.classList.remove('whitecoloredtext');
+                    }
+                });
+            } else if(eSelect.selectedIndex === 1) {
+                $('body').css('background-image', "url('/assets/images/background 2.png')");
+                $(".bg3playerhahalol").each(function (index, element) {
+                    element.classList.remove('bg3playerhahalol');
+                    element.classList.add('playerhahalol');
+                    daelements = getchildrenlol(element);
+                    for (var i = 0; i < daelements.length; i++) {
+                        var element = daelements[i];
+                        element.classList.remove('whitecoloredtext');
+                    }
+                });
+            } else if(eSelect.selectedIndex === 2) {
+                $('body').css('background-image', "url('/assets/images/background 3.png')");
+                $(".playerhahalol").each(function (index, element) {
+                    element.classList.remove('playerhahalol');
+                    element.classList.add('bg3playerhahalol');
+                    daelements = getchildrenlol(element);
+                    for (var i = 0; i < daelements.length; i++) {
+                        var element = daelements[i];
+                        element.classList.add('whitecoloredtext');
+                    }
+                });
+            }
+        }
+    }
+  </script>
 <html>
     <head>
       <title>Swordbattle.io Hall Of Fame</title>
-<h1 style="color:darkgreen;text-align:center;">Swordbattle.io Hall Of Fame</h1>
+<h1 style="color:darkgreen !important;text-align:center;" id=>Swordbattle.io Hall Of Fame</h1>
   <br>
       <hr>
-      <Hr>
+      <hr>
         <br>
     <style>
 img {
@@ -20,14 +82,21 @@ img {
   object-position: 50% 15%;
 }
 </style>
-
+<div style="text-align: center;">
+<mark style="background-color: white; font-size: 30px;" id="bgselectlol"><label for="backgrounds">Select a background: </label></mark>
+<select name="backgrounds" id="backgrounds">
+  <option value="background1" selected="selected">Background 1</option>
+  <option value="background2">Background 2</option>
+  <option value="background3">Background 3</option>
+</select>
+</div>
 <a href="https://swordbattle.io/">
-<img src="back to swordbattle.io 2.png" alt="swordbattle.io" style="width:200px;height:200px;border:0;">
+<img src="/assets/images/back to swordbattle.io 2.png" alt="swordbattle.io" style="width:200px;height:200px;border:0;">
 </a>
 
  
     </head>
-    <body>
+    <body class="bg">
       <script src="https://use.fontawesome.com/1722374eed.js"></script>
    <script src="https://kit.fontawesome.com/7d59f85654.js" crossorigin="anonymous"></script>
 
@@ -39,7 +108,7 @@ img {
          <!--Scout;) Hall Of Fame Page-->
   
            
-<h1 style="text-align: center; color: white; border: 7px solid #000; margin: 100;">Scout ;)
+<h1 class="playerhahalol">Scout ;)
 
             
             
@@ -62,13 +131,13 @@ img {
 
                      <p style="font-size:0.5em;color:white;"> One of the very first people to get the Scythe Skin.
 
-                         <p style="font-size:0.5em;color:whitek;"> Was a trustworthy person and became a moderator in discord.
+                         <p style="font-size:0.5em;color:white;"> Was a trustworthy person and became a moderator in discord.
           </h1>
 <hr>
           <br>
  <!--Angel Hall Of Fame Page-->
           
-     <h1 style="text-align: center; color: white; border: 10px solid #000;">Angel
+     <h1 class="playerhahalol">Angel
 
        <p style="font-size:1em;color:white;"> Status: Active
 
@@ -98,7 +167,7 @@ img {
                                <br>
                                 <!--Acol Hall Of Fame Page-->
 
-                                <h1 style="text-align: center; color: white; border: 10px solid #000;">Acol
+                                <h1 class="playerhahalol">Acol
 
        <p style="font-size:1em;color:white;"> Status: Active
 
@@ -134,7 +203,7 @@ img {
        <hr>
        <br>
 <!--CosmicWarlord Hall Of Fame Page-->
-          <h1 style="text-align: center; color: white; border: 10px solid #000;">CosmicWarlord
+          <h1 class="playerhahalol">CosmicWarlord
       
           <p style="font-size:1em;color:white;"> Status: Active
 
@@ -174,7 +243,7 @@ img {
 
           <!--Bread Hall Of Fame Page-->
 
-             <h1 style="text-align: center; color: white; border: 10px solid #000;">Bread
+             <h1 class="playerhahalol">Bread
 
      <p style="font-size:1em;color:white;"> Status: Active
 
@@ -199,7 +268,7 @@ img {
 
            <!--Bread Hall Of Fame Page-->
 
-          <h1 style="text-align: center; color: white; border: 10px solid #000;">Dev3x
+          <h1 class="playerhahalol">Dev3x
 
             <p style="font-size:1em;color:white;"> Status: Active
               
@@ -220,7 +289,7 @@ img {
              
                <!--Fishymine Hall Of Fame Page-->
 
-          <h1 style="text-align: center; color: white; border: 10px solid #000;">Dev3x
+          <h1 class="playerhahalol">Dev3x
             <p style="font-size:1em;color:white;"> Status: Active
               
               <p style="font-size:0.5em;color:white;"> Is active on the forum when he can be. 
@@ -240,7 +309,7 @@ img {
         
               <!--DillionB07 Hall Of Fame Page-->
 
-          <h1 style="text-align: center; color: white; border: 10px solid #000;">DillonB07
+          <h1 class="playerhahalol">DillonB07
 
             <p style="font-size:1em;color:white;"> Status: Active
 
@@ -259,7 +328,7 @@ img {
           <hr>
           <br>
 <center><div>
-  <embed src="Honorable Mentions.png">
+  <embed src="/assets/images/Honorable Mentions.png">
 </div></center> 
   <br>
       <hr>
@@ -267,7 +336,7 @@ img {
         <br>
         <!--Honorable Mentions Hall Of Fame Page-->
           
-          <h1 style="text-align: center; color: white; border: 10px solid #000;">Bevonnaa
+          <h1 class="playerhahalol">Bevonnaa
 
              <p style="font-size:1em;color:white;"> BADBOI
 
@@ -318,7 +387,7 @@ img {
           <hr>
           <br>
             <center><div>
-  <embed src="skin credits.png">
+  <embed src="/assets/images/skin credits.png">
 </div></center>   
   <br>
       <hr>
@@ -329,7 +398,7 @@ img {
           <!--Skin Credits Hall Of Fame Page-->                                   
          
           
-          <h1 style="text-align: center; color: white; border: 10px solid #000;">   Neon - FishyMine 
+          <h1 class="playerhahalol">   Neon - FishyMine 
 
           <p style="font-size:1em;color:white;"> Vortex - Voltex
 
@@ -443,14 +512,14 @@ img {
           <hr>
           <br>
                <center><div>
-  <embed src="Hall Of Fame Contributors.png">
+  <embed src="/assets/images/Hall Of Fame Contributors.png">
 </div></center> 
   <br>
       <hr>
       <Hr>
         <br>
         <!--Hall Of Fame Contributors Hall Of Fame Page-->     
-          <h1 style="text-align: center; color: white; border: 10px solid #000;">Sketchxcoding 
+          <h1 class="playerhahalol">Sketchxcoding 
 
             <p style="font-size:1em;color:white;">Codergautam
 
